@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임원단 소개</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#dfeef9;
+    font-family:"맑은 고딕", sans-serif;
+    min-height:100vh;
+}
+
+.header{
+    padding:40px 50px;
+}
+
+.back-btn{
+    background:white;
+    border:none;
+    border-radius:15px;
+    padding:12px 20px;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.back-btn:hover{
+    background:#f5f5f5;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    padding:30px;
+}
+
+.mascot{
+    width:250px;
+}
+
+.speech-bubble{
+    position:relative;
+
+    max-width:800px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.speech-bubble:before{
+    content:"";
+
+    position:absolute;
+
+    left:-35px;
+    top:120px;
+
+    width:0;
+    height:0;
+
+    border-top:25px solid transparent;
+    border-bottom:25px solid transparent;
+    border-right:40px solid white;
+}
+
+.main-title{
+    color:#1f6dad;
+    font-size:38px;
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.english{
+    color:#5d8db9;
+    font-size:20px;
+    font-style:italic;
+
+    margin-bottom:30px;
+}
+
+.description{
+    font-size:22px;
+    line-height:1.8;
+
+    color:#333;
+
+    margin-bottom:35px;
+}
+
+.verse-box{
+    background:#f5f9fd;
+
+    border-left:6px solid #4d8fd3;
+
+    padding:25px;
+
+    border-radius:15px;
+}
+
+.verse-title{
+    color:#1f6dad;
+    font-size:24px;
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.verse{
+    line-height:1.9;
+    font-size:18px;
+    color:#444;
+}
+
+@media(max-width:1000px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .speech-bubble:before{
+        display:none;
+    }
+
+    .mascot{
+        width:180px;
+    }
+
+    .main-title{
+        font-size:30px;
+    }
+}
+
+.page-title{
+    text-align:center;
+    color:#1f6dad;
+    font-size:48px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<button class="back-btn"
+    onclick="location.href='Home.html'">
+    ← 뒤로 가기
+</button>
+
+</div>
+
+<h1 class="page-title">임원단 소개</h1>
+
+<div class="container">
+
+<img src="mascot.png"
+     alt="마스코트"
+     class="mascot">
+
+<div class="speech-bubble">
+
+    <div class="main-title">
+        닮아가는 세대 임원단 SYNC
+    </div>
+
+    <div class="english">
+        (Spirit Yielded New Christ-likeness)
+    </div>
+
+    <div class="description">
+        SYNC는 닮아가는 세대로서
+        예수님을 닮고자 하는 고백을 담고 있다.
+    </div>
+
+    <div class="verse-box">
+
+        <div class="verse-title">
+            주제말씀 : 요한복음 13:14~15
+        </div>
+
+        <div class="verse">
+            내가 주와 또는 선생이 되어
+            너희 발을 씻었으니
+            너희도 서로 발을 씻어주는 것이 옳으니라.
+            <br><br>
+
+            내가 너희에게 행한 것 같이
+            너희도 행하게 하려 하여
+            본을 보였노라.
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

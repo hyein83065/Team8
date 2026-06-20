@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임원단 부서 소개</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#dfeef9;
+    font-family:"맑은 고딕", sans-serif;
+    min-height:100vh;
+}
+
+.header{
+    padding:40px 50px 20px;
+}
+
+.back-btn{
+    background:white;
+    border:none;
+    border-radius:15px;
+    padding:12px 20px;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.back-btn:hover{
+    background:#f5f5f5;
+}
+
+.title{
+    text-align:center;
+    color:#1f6dad;
+    font-size:48px;
+    font-weight:bold;
+    margin-bottom:50px;
+}
+
+.grid{
+    width:90%;
+    max-width:1200px;
+
+    margin:0 auto 60px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+.card{
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+    transition:0.25s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.12);
+}
+
+.department-name{
+    color:#1f6dad;
+    font-size:30px;
+    font-weight:bold;
+
+    margin-bottom:20px;
+}
+
+.description{
+    color:#444;
+    font-size:20px;
+    line-height:1.8;
+}
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .title{
+        font-size:38px;
+    }
+
+    .department-name{
+        font-size:26px;
+    }
+
+    .description{
+        font-size:18px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<button class="back-btn"
+    onclick="location.href='Home.html'">
+    ← 뒤로 가기
+</button>
+
+</div>
+
+<h1 class="title">임원단 부서 소개</h1>
+
+<div class="grid">
+
+<div class="card">
+    <div class="department-name">본부</div>
+    <div class="description">
+        GLS 임원단 전체를 총괄하며
+        방향 설정 및 행정 업무를 담당합니다.
+    </div>
+</div>
+
+<div class="card">
+    <div class="department-name">기획운영</div>
+    <div class="description">
+        GLS 내 각종 행사와 프로그램을
+        기획하고 운영합니다.
+    </div>
+</div>
+
+<div class="card">
+    <div class="department-name">홍보기획</div>
+    <div class="description">
+        SNS 콘텐츠 제작 및
+        GLS의 사업 홍보를 담당합니다.
+    </div>
+</div>
+
+<div class="card">
+    <div class="department-name">학생지원</div>
+    <div class="description">
+        GLS 학생들과 임원단의 연결고리 역할을 하며,
+        신앙국 역할을 담당하기도 합니다.
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

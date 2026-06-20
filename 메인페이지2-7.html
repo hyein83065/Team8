@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인6</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght=700;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            overflow: hidden;
+            background: url('sky.png') no-repeat center/cover #030d22 !important;
+        }
+
+        .earth-layer {
+            position: absolute;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            z-index: 3;
+            opacity: 0.92;
+            filter: brightness(0.84) contrast(1.02) drop-shadow(0 0 48px rgba(124, 227, 255, 0.35));
+            animation: earth-glow 3.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes earth-glow {
+            from { filter: brightness(0.82) contrast(1.02) drop-shadow(0 0 40px rgba(124, 227, 255, 0.25)); }
+            to { filter: brightness(0.86) contrast(1.02) drop-shadow(0 0 56px rgba(124, 227, 255, 0.42)); }
+        }
+
+        /* 1. 메인 컨테이너 */
+        .main-container {
+            transform: translateY(-11vh);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .title-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 2. 좌측 상단 말풍선 & 구름(뭉.png) 영역 */
+        .top-badge-area {
+            position: absolute;
+            bottom: 105%; 
+            left: -4.5vw; 
+            display: flex;
+            align-items: center;
+            gap: 4px; /* [수정] 간격을 12px에서 4px로 줄여 말풍선을 왼쪽으로 밀착 */
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        /* 팔다리 없는 구름 캐릭터 (뭉.png) */
+        .cloud-top {
+            width: clamp(63px, 11.2vw, 140px); /* [수정] 크기 40% 확대 수치 적용 */
+            height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+        }
+
+        /* 말풍선 스타일 */
+        .speech-bubble {
+            background-color: #2b579a;
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 25px 25px 25px 0; 
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: clamp(13px, 2.2vw, 28px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+
+        /* 3. 메인 타이틀 스택 */
+        .text-stack {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 0 15px rgba(46, 170, 255, 0.8)) 
+                    drop-shadow(0 0 35px rgba(46, 144, 255, 0.5));
+            transform: translateY(-0.5rem);
+        }
+
+        .text-layer {
+            grid-area: 1 / 1;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 900;
+            white-space: nowrap;
+            font-size: clamp(44px, 7vw, 104px);
+            word-spacing: 0.2em;
+        }
+
+        .layer-stroke {
+            color: #123987;
+            -webkit-text-stroke: 22px #123987;
+            stroke-linejoin: round;
+            paint-order: stroke fill;
+        }
+
+        .layer-fill { position: relative; }
+        .text-white { color: #ffffff; }
+        .text-sky { color: #7ce3ff; }
+
+        /* 4. 세부 페이지 이동 반투명 버튼 */
+        .enter-button {
+            margin-top: 1.2vh;
+            padding: 12px 34px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: clamp(14px, 1.8vw, 22px);
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .enter-button:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 227, 255, 0.4);
+        }
+
+        .enter-button::before {
+            content: '→ ';
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        /* 5. 하단 여백 양쪽 불규칙 배치 (뭉치.png 적용) */
+        .floating-char {
+            position: absolute;
+            z-index: 5;
+            animation: float-anim 4s ease-in-out infinite;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-char:hover {
+            transform: scale(1.05);
+        }
+
+        /* 좌측 캐릭터 */
+        .char-left {
+            left: 14%;
+            bottom: 22%;
+            width: clamp(120px, 15vw, 190px); /* [수정] 크기 확대 적용 */
+            animation-duration: 4.2s;
+        }
+
+        /* 우측 캐릭터 */
+        .char-right {
+            right: 11%;
+            bottom: 28%; /* [수정] 12%에서 28%로 위로 올림 */
+            width: clamp(168px, 19.2vw, 240px); /* [수정] 크기 20% 확대 적용 */
+            animation-duration: 5s;
+            animation-delay: 0.7s;
+        }
+
+        /* 캐릭터 옆 말풍선 */
+        .char-speech-bubble {
+            position: absolute;
+            background-color: #ffffff;
+            color: #1a3a6b;
+            padding: 14px 32px 14px 20px;
+            border-radius: 35px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: clamp(12px, 1.8vw, 20px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            border: 2px solid #ffffff;
+            white-space: normal;
+            letter-spacing: 0.3px;
+            max-width: 420px;
+            line-height: 1.5;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: auto;
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .char-speech-bubble.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 좌측 말풍선 - 뭉치 오른쪽에 배치, 꼬리는 왼쪽 */
+        .left-bubble {
+            bottom: 28%;
+            left: 25%;
+        }
+
+        .left-bubble::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 12px solid #ffffff;
+        }
+
+        .left-bubble::after {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 10px solid #ffffff;
+        }
+
+        /* 우측 말풍선 - 뭉치 왼쪽에 배치, 꼬리는 오른쪽 */
+        .right-bubble {
+            bottom: 28%;
+            right: 25%;
+        }
+
+        .right-bubble::before {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 12px solid #ffffff;
+        }
+
+        .right-bubble::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 10px solid #ffffff;
+        }
+
+        /* 말풍선 텍스트 컨테이너 */
+        .bubble-content {
+            flex: 1;
+        }
+
+        /* X 닫기 버튼 */
+        .bubble-close {
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            font-size: clamp(16px, 2vw, 24px);
+            color: #1a3a6b;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .bubble-close:hover {
+            transform: scale(1.2);
+            color: #0f2349;
+        }
+
+        @keyframes float-anim {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* 6. 별똥별 효과 */
+        .shooting-star-container {
+            position: absolute;
+            top: -5%;
+            right: -5%;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shooting-star {
+            --move-x: -520px;
+            --move-y: 420px;
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 5px;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #fff, 0 0 24px #7ce3ff;
+            animation: shooting-star-move 3.7s linear infinite;
+        }
+
+        .shooting-star-small {
+            --move-x: -220px;
+            --move-y: 140px;
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #fff, 0 0 16px #7ce3ff;
+            animation: shooting-star-move 3.7s linear infinite;
+            animation-delay: 1.2s;
+        }
+
+        .shooting-star::after,
+        .shooting-star-small::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8));
+            transform-origin: right center;
+            transform: translateY(-50%) translateX(-100%) rotate(135deg);
+        }
+
+        .shooting-star-small::after {
+            width: 60px;
+        }
+
+        @keyframes shooting-star-move {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            75% {
+                transform: translate(var(--move-x), var(--move-y));
+                opacity: 1;
+            }
+            90% {
+                opacity: 0;
+            }
+            100% {
+                transform: translate(var(--move-x), var(--move-y));
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shooting-star-container">
+        <div class="shooting-star"></div>
+        <div class="shooting-star shooting-star-small"></div>
+    </div>
+
+    <img src="지구이미지.png" class="earth-layer" alt="Earth">
+
+    <div class="main-container">
+        <div class="title-wrapper">
+            <div class="top-badge-area">
+                <img src="뭉.png" class="cloud-top" alt="Global Leadership Cloud">
+                <div class="speech-bubble">Global Leadership</div>
+            </div>
+
+            <div class="text-stack">
+                <div class="text-layer layer-stroke">
+                    <span>닮아가는</span> <span>세대</span> <span>2026</span>
+                </div>
+                <div class="text-layer layer-fill">
+                    <span class="text-white">닮아가는</span> 
+                    <span class="text-white">세대</span> 
+                    <span class="text-sky">2026</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="enter-button">Click</a>
+    </div>
+
+    <img src="뭉치.png" class="floating-char char-left" alt="Left Cloud Character">
+    <img src="뭉치.png" class="floating-char char-right" alt="Right Cloud Character">
+
+    <!-- 좌측/우측 캐릭터 말풍선 -->
+    <div class="char-speech-bubble left-bubble" id="leftBubble">
+        <div class="bubble-content" id="leftBubbleContent"></div>
+        <button class="bubble-close" data-target="leftBubble">&times;</button>
+    </div>
+    <div class="char-speech-bubble right-bubble" id="rightBubble">
+        <div class="bubble-content" id="rightBubbleContent"></div>
+        <button class="bubble-close" data-target="rightBubble">&times;</button>
+    </div>
+
+    <script>
+        // 텍스트를 띄어쓰기 기준으로 줄바꿈하고 <br>로 변환하는 함수
+        function formatTextWithBr(text, maxWordsPerLine = 2) {
+            const lines = text.split('\n');
+            const wrappedLines = lines.map(line => {
+                const words = line.split(' ');
+                let currentLine = [];
+                let result = [];
+                
+                words.forEach(word => {
+                    currentLine.push(word);
+                    if (currentLine.length >= maxWordsPerLine) {
+                        result.push(currentLine.join(' '));
+                        currentLine = [];
+                    }
+                });
+                
+                if (currentLine.length > 0) {
+                    result.push(currentLine.join(' '));
+                }
+                
+                return result.join('<br>');
+            });
+            
+            return wrappedLines.join('<br>');
+        }
+
+        const charLeft = document.querySelector('.char-left');
+        const charRight = document.querySelector('.char-right');
+        const leftBubble = document.getElementById('leftBubble');
+        const rightBubble = document.getElementById('rightBubble');
+        const leftBubbleContent = document.getElementById('leftBubbleContent');
+        const rightBubbleContent = document.getElementById('rightBubbleContent');
+        const closeButtons = document.querySelectorAll('.bubble-close');
+
+        // 좌측 뭉치 클릭 이벤트
+        charLeft.addEventListener('click', function(e) {
+            e.stopPropagation();
+            rightBubble.classList.remove('active');
+            const text = '한동대학교 GLS 26학번 닮아가는 세대 여러분을 위한 홈페이지 입니다.';
+            leftBubbleContent.innerHTML = formatTextWithBr(text, 4);
+            leftBubble.classList.add('active');
+        });
+
+        // 우측 뭉치 클릭 이벤트
+        charRight.addEventListener('click', function(e) {
+            e.stopPropagation();
+            leftBubble.classList.remove('active');
+            const text = 'Click 버튼을 눌러 GLS에 대해 자세히 알아보세요!\n-프론트엔드 입문 Team8-';
+            rightBubbleContent.innerHTML = formatTextWithBr(text, 4);
+            rightBubble.classList.add('active');
+        });
+
+        // X 닫기 버튼 클릭 이벤트
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.remove('active');
+            });
+        });
+
+        // 다른 곳 클릭 시 말풍선 숨김
+        document.addEventListener('click', function() {
+            leftBubble.classList.remove('active');
+            rightBubble.classList.remove('active');
+        });
+    </script>
