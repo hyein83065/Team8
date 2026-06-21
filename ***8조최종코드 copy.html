@@ -941,20 +941,8 @@
      animation: none;
    }
 
-   #page-faq { 
-     z-index: 1001; 
-     background-image: url("구름.png"), linear-gradient(to bottom, #093772 0%, #2b5a90 45%, #abc2e8 100%);
-     background-repeat: no-repeat, no-repeat;
-     background-position: center, center;
-     background-size: cover, cover;
-   }
-   #page-faq-answer { 
-     z-index: 1002; 
-     background-image: url("구름.png"), linear-gradient(to bottom, #093772 0%, #2b5a90 45%, #abc2e8 100%);
-     background-repeat: no-repeat, no-repeat;
-     background-position: center, center;
-     background-size: cover, cover;
-   }
+   #page-faq { z-index: 1001; }
+   #page-faq-answer { z-index: 1002; }
 
    @keyframes fade-in {
      from {
@@ -1037,39 +1025,12 @@
   #page-faq-answer .subpage-content {
     padding-top: calc(var(--subpage-header-height) + 60px);
   }
-   #page-gls.subpage {
-     background: url(구름.png) center / cover, no-repeat, linear-gradient(to bottom, #4194ec 0%, #84b9fa 45%, #add1ed 100%) !important;
-  }
-
-  #page-gls .page-title {
-     color: #ffffff;
-  }
-
-  #page-gls .subpage-content,
-  #page-gls .page {
-     background: transparent !important;
-  }
-
-  #page-gls .page {
+   #page-gls .page {
      width: 100%;
      box-sizing: border-box;
      padding-top: 20px;
      min-height: calc(100vh - 160px);
-  }
-
-  #page-reset {
-     background: url("구름.png") center / cover no-repeat, linear-gradient(to bottom, #112656, #1c4294) !important;
-     overflow-y: auto;
-     min-height: 100vh;
-  }
-
-  #page-hanst {
-     background: linear-gradient(90deg, #1b3899 0%, #7ac5f4 100%) !important;
-  }
-
-  #page-schedule {
-     background: url("구름.png") center / cover no-repeat, linear-gradient(180deg, #b8e8ff 0%, #7ac8f5 100%);
-  }
+   }
 
    .subpage-empty {
      text-align: center;

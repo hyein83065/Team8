@@ -755,45 +755,19 @@
             }
         }  
    /* ============ MENU SECTION ============ */
-   /* ===== 메뉴 -> 메인 돌아가기 버튼 CSS 끝 (인예원) ===== */
-        /* ===== 메뉴 -> 메인 돌아가기 버튼 CSS ===== */
-    .menu-back-btn {
-    position: absolute;
-    top: 34px;
-    left: 32px;
-    z-index: 5;
-
-    background: #ffffff;
-    color: #16356b;
-    border: none;
-    border-radius: 999px;
-    padding: 14px 34px;
-
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    cursor: pointer;
-
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-    transition: all 0.2s ease;
-    }
-
-    .menu-back-btn:hover {
-    transform: translateY(-2px);
-    background: #eaf6ff;
-    }
-
    #menu-section {
      position: relative;
      width: 100%;
      min-height: 100vh;
-     background: linear-gradient(180deg,
+     background: 
+      url("메뉴페이지 구름.png") center / cover, no-repeat,
+      linear-gradient(180deg,
          #b8e8ff 0%,
          #7ac8f5 8%,
          #3a9de8 20%,
          #1e6fd6 40%,
          #0d3a8a 70%,
-         #060d2e 100%);
+         #0b1f61 100%);
      overflow: hidden;
      display: flex;
      flex-direction: column;
@@ -808,11 +782,6 @@
      pointer-events: none;
    }
 
-   .menu-side-cloud {
-     position: absolute;
-     z-index: 1;
-     opacity: 0.9;
-   }
 
    .menu-title {
      position: relative;
@@ -912,7 +881,6 @@
      transform: translateY(-3px);
    }
 
-
    /* ========================================================================== */
    /* [1] CSS 스타일 영역 - 세부 페이지 (Subpages) 공통 및 상단바                  */
    /* ========================================================================== */
@@ -941,20 +909,16 @@
      animation: none;
    }
 
-   #page-faq { 
-     z-index: 1001; 
-     background-image: url("구름.png"), linear-gradient(to bottom, #093772 0%, #2b5a90 45%, #abc2e8 100%);
-     background-repeat: no-repeat, no-repeat;
-     background-position: center, center;
-     background-size: cover, cover;
-   }
-   #page-faq-answer { 
-     z-index: 1002; 
-     background-image: url("구름.png"), linear-gradient(to bottom, #093772 0%, #2b5a90 45%, #abc2e8 100%);
-     background-repeat: no-repeat, no-repeat;
-     background-position: center, center;
-     background-size: cover, cover;
-   }
+   #page-faq, #page-faq-answer { 
+    z-index: 1002; 
+    background-image:
+        url("구름.png"),
+        linear-gradient(to bottom, #093772 0%, #2b5a90 45%, #abc2e8 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+
+  }
 
    @keyframes fade-in {
      from {
@@ -1030,46 +994,38 @@
     gap: 24px;
     min-height: 80vh;
   }
+
+  
   #page-professors .subpage-content {
     padding: calc(var(--subpage-header-height) + 90px) 24px calc(var(--subpage-header-height) + 90px);
   }
+  
   #page-faq .subpage-content,
   #page-faq-answer .subpage-content {
     padding-top: calc(var(--subpage-header-height) + 60px);
   }
-   #page-gls.subpage {
-     background: url(구름.png) center / cover, no-repeat, linear-gradient(to bottom, #4194ec 0%, #84b9fa 45%, #add1ed 100%) !important;
+  
+  #page-gls.subpage {
+  background: 
+  url(구름.png) center / cover, no-repeat,
+  linear-gradient(
+    to bottom,
+    #4194ec 0%,
+    #84b9fa 45%,
+    #add1ed 100%
+  ) !important;
+
+  }
+  #page-gls .page-title {
+    color: #ffffff;
   }
 
-  #page-gls .page-title {
-     color: #ffffff;
-  }
+
 
   #page-gls .subpage-content,
   #page-gls .page {
-     background: transparent !important;
-  }
-
-  #page-gls .page {
-     width: 100%;
-     box-sizing: border-box;
-     padding-top: 20px;
-     min-height: calc(100vh - 160px);
-  }
-
-  #page-reset {
-     background: url("구름.png") center / cover no-repeat, linear-gradient(to bottom, #112656, #1c4294) !important;
-     overflow-y: auto;
-     min-height: 100vh;
-  }
-
-  #page-hanst {
-     background: linear-gradient(90deg, #1b3899 0%, #7ac5f4 100%) !important;
-  }
-
-  #page-schedule {
-     background: url("구름.png") center / cover no-repeat, linear-gradient(180deg, #b8e8ff 0%, #7ac8f5 100%);
-  }
+  background: transparent !important;
+}
 
    .subpage-empty {
      text-align: center;
@@ -1082,7 +1038,7 @@
    }
 
    .subpage-empty p {
-     color: #a0c8ff;
+     color: #ffffff;
      font-size: 16px;
      line-height: 1.7;
    }
@@ -1205,7 +1161,9 @@
      50% { transform: translateY(-10px); }
    }
    #page-reset {
-     background: linear-gradient(to bottom, #112656, #1c4294) !important;
+     background: 
+      url("구름.png") center / cover, no-repeat,
+     linear-gradient(to bottom, #112656, #1c4294) !important;
      overflow-y: auto;
      min-height: 100vh;
    }
@@ -1426,7 +1384,9 @@
    /* [1] CSS 스타일 영역 - 학사일정 세부 페이지 전용                             */
    /* ========================================================================== */
    #page-schedule {
-     background: linear-gradient(180deg, #b8e8ff 0%, #7ac8f5 100%);
+     background: 
+     url("구름.png") center / cover no-repeat,
+     linear-gradient(180deg, #b8e8ff 0%, #7ac8f5 100%);
    }
 
    .schedule-page-content {
@@ -1507,7 +1467,7 @@
 
    .event-image-container {
      width: 100%;
-     height: auto;
+     height: 180px;
      border-radius: 16px;
      overflow: hidden;
      margin-bottom: 24px;
@@ -1863,7 +1823,7 @@ body{
 
 .home-title{
     margin:40px 0 0 50px;
-    color:#1f6dad;
+    color:#ffffff;
     font-size:60px;
     font-weight:bold;
 }
@@ -1902,7 +1862,7 @@ body{
 }
 
 .instagram a{
-    color:#ff4b87;
+    color:#2d6ea6;
     text-decoration:none;
     font-weight:bold;
 }
@@ -2158,16 +2118,26 @@ body{
    }
 
    .professors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-content: center;
-  gap: 32px;                                    /* 18px → 32px */
-  width: min(100%, 1000px);                     /* calc 계산식 대신 단순하게 */
-  max-width: 1000px;                            /* 900px → 1000px */
-  margin: 6px auto 0;
-}
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     justify-content: center;
+     gap: 18px;
+     width: min(100%, calc(3*280px + 2*18px));
+     max-width: 900px;
+     margin: 6px auto 0;
+   }
 
-
+   .prof-card {
+     display: flex;
+     gap: 12px;
+     align-items: center;
+     background: rgba(255, 255, 255, 0.04);
+     border-radius: 12px;
+     padding: 14px;
+     min-height: 140px;
+     width: 100%;
+     max-width: 100%;
+   }
 
    .prof-photo {
      width: clamp(90px, 12vw, 140px);
@@ -2235,7 +2205,6 @@ body{
        height: 84px;
      }
    }
- 
  </style>
 </head>
 
@@ -2267,7 +2236,7 @@ body{
                 </div>
             </div>
 
-<button class="gls-enter-button" onclick="enterMenu()">Click</button>
+            <a href="#menu-section" class="gls-enter-button">Click</a>
         </div>
 
         <img src="뭉치.png" class="gls-floating-char gls-char-left" alt="Left Cloud Character">
@@ -2285,29 +2254,13 @@ body{
     </div>
 
 <!----------------------메뉴섹션---------------------->
-    <section id="menu-section">
-        <button class="menu-back-btn" onclick="goToMain()">돌아가기</button>
-        <div class="menu-stars" id="menu-stars"></div>
 
-   <div class="menu-side-cloud" style="bottom:5%;left:-2%;">
-     <svg width="140" height="85" viewBox="0 0 140 85">
-       <ellipse cx="70" cy="68" rx="66" ry="22" fill="white" opacity="0.5" />
-       <circle cx="40" cy="54" r="26" fill="white" opacity="0.5" />
-       <circle cx="70" cy="46" r="30" fill="white" opacity="0.5" />
-       <circle cx="102" cy="54" r="24" fill="white" opacity="0.5" />
-     </svg>
-   </div>
-   <div class="menu-side-cloud" style="bottom:5%;right:-2%;">
-     <svg width="130" height="80" viewBox="0 0 130 80">
-       <ellipse cx="65" cy="63" rx="62" ry="21" fill="white" opacity="0.5" />
-       <circle cx="38" cy="50" r="24" fill="white" opacity="0.5" />
-       <circle cx="65" cy="43" r="28" fill="white" opacity="0.5" />
-       <circle cx="95" cy="50" r="22" fill="white" opacity="0.5" />
-     </svg>
-   </div>
+ <section id="menu-section">
+   <div class="menu-stars" id="menu-stars"></div>
 
    <h2 class="menu-title">
      <span class="menu-title-star">✦</span> MENU <span class="menu-title-star">✦</span>
+     <span class="menu-title-cloud-icon">☁️</span>
    </h2>
 
    <div class="menu-grid">
@@ -2750,10 +2703,7 @@ body{
                  fill="#0641ab" stroke="#ffffff" stroke-width="9" stroke-linejoin="round"/>
          </svg>
          <div class="inner-video-screen">
-            <img src="한스트 썸네일.png" alt="한스트" style="width:100%;height:100%;object-fit:cover;">
-            <div class="cloud-play-icon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-            </div>
-          </div>
+           <div class="cloud-play-icon"></div>
          </div>
        </div>
      </div>
@@ -2771,18 +2721,23 @@ body{
    <div class="subpage-content">
      <div class="professors-hero" id="professorsIntro">
        <h2>교수진 소개</h2>
-       <div style="opacity:0.85;margin-top:6px;font-size:20px;">학부 및 전임교수님들의 소개입니다.</div>
+       <div style="opacity:0.85;margin-top:6px;">학부 및 전임교수님들의 소개입니다.</div>
      </div>
 
 
 
 
      <div class="professors-grid" id="professorsGrid">
-       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:10px 0 6px; font-size:21px;">학부장님</div>
+       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:10px 0 6px">학부장님</div>
+
+
+
+
        <div class="prof-card">
          <img class="prof-photo" src="손화철 교수님.jpg" alt="손화철 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">손화철 (Wha-Chul Son)</div>
+           <div class="prof-title">학부장</div>
            <div class="prof-info">교과: 1학년 세미나, 철학개론, 생명과학과 윤리, 공학윤리</div>
            <div class="prof-info">사무실: 현동홀 410B호</div>
            <div class="prof-info">전화: (054-260-1412)</div>
@@ -2790,7 +2745,11 @@ body{
          </div>
        </div>
 
-       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:12px 0 6px; font-size:21px;">전임교수님</div>
+
+
+
+       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:12px 0 6px">전임교수님</div>
+
 
 
 
@@ -2798,6 +2757,7 @@ body{
          <img class="prof-photo" src="김경미 교수님.jpg" alt="김경미 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">김경미 (Kyungmi Kim)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: C프로그래밍, 파이썬 프로그래밍</div>
            <div class="prof-info">사무실: 현동홀 410A호</div>
            <div class="prof-info">전화: (054-260-1374)</div>
@@ -2812,6 +2772,7 @@ body{
          <img class="prof-photo" src="김군오 교수님.jpg" alt="김군오 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">김군오 (Koono Kim)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 소프트웨어 입문, 프론트엔드입문, 자바스크립트, 하이브리드웹설계</div>
            <div class="prof-info">사무실: 현동홀 406호</div>
            <div class="prof-info">전화: (054-260-1494)</div>
@@ -2826,6 +2787,7 @@ body{
          <img class="prof-photo" src="김창욱 교수님.jpg" alt="김창욱 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">김창욱 (Changwook Kim)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 1학년세미나, 글로벌리제이션과 한국의 대중문화, 사회학개론, 디지털 미디어와 사회변동, 한국사회의 구조와 문화의 이해, 시스템과 사회</div>
            <div class="prof-info">사무실: 현동홀 411A호</div>
            <div class="prof-info">전화: (054-260-3114)</div>
@@ -2840,6 +2802,7 @@ body{
          <img class="prof-photo" src="김헌주 교수님.jpg" alt="김헌주 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">김헌주 (Heonjoo Kim)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 소프트웨어 입문, 통계학, R을 이용한 빅데이터 분석, 확률론, 수리통계학1·2, 범주형 자료분석, 수학통계특론</div>
            <div class="prof-info">사무실: 현동홀 408호</div>
            <div class="prof-info">전화: (054-260-1285)</div>
@@ -2854,6 +2817,7 @@ body{
          <img class="prof-photo" src="나대영 교수님.jpg" alt="나대영 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">나대영 (Na, Dae-Young)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 소프트웨어 입문, 프론트엔드입문, 파이썬 프로그래밍, 생성형AI를 활용한 프로그래밍, C프로그래밍, 생활 속의 AI, 자바스크립트</div>
            <div class="prof-info">사무실: 현동홀 409호</div>
            <div class="prof-info">전화: (054-260-1491)</div>
@@ -2868,6 +2832,7 @@ body{
          <img class="prof-photo" src="민성아 교수님.jpg" alt="민성아 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">민성아 (Min, Seng-Ah)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 중국어1, 중국어2, 중국 문화와 언어</div>
            <div class="prof-info">사무실: 현동홀 414호</div>
            <div class="prof-info">전화: (054-260-1175)</div>
@@ -2882,6 +2847,7 @@ body{
          <img class="prof-photo" src="박지현 교수님.jpg" alt="박지현 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">박지현 (Jihyoun Park)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 소프트웨어입문, 프론트엔드입문, 파이썬 프로그래밍, 생성형AI를 활용한 프로그래밍, 자바스크립트, AI데이터입문</div>
            <div class="prof-info">사무실: 현동홀 407호</div>
            <div class="prof-info">전화: (054-260-1523)</div>
@@ -2896,6 +2862,7 @@ body{
          <img class="prof-photo" src="신승엽 교수님.jpg" alt="신승엽 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">신승엽 (Seungyop Shin)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 한국근현대사, 동양의 역사와 문화, 한국기독교의 역사와 문화</div>
            <div class="prof-info">사무실: 현동홀 413호</div>
            <div class="prof-info">전화: (054-260-1389)</div>
@@ -2910,6 +2877,7 @@ body{
          <img class="prof-photo" src="이한진 교수님.jpg" alt="이한진 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">이한진 (Hanjin Lee)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: Calculus1, Calculus2, 미분방정식과 응용, 선형대수학, 조합론 및 그래프이론, 수학 통계특론, 실해석학개론, 현대대수학,
              수학통계특론</div>
            <div class="prof-info">사무실: 현동홀 412호</div>
@@ -2925,6 +2893,7 @@ body{
          <img class="prof-photo" src="조장환 교수님.jpg" alt="조장환 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">조장환 (Joseph Cho)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: Calculus1, Calculus 2, 선형대수학, 미분기하학</div>
            <div class="prof-info">사무실: 현동홀 416호</div>
            <div class="prof-info">전화: (054-260-1325)</div>
@@ -2939,6 +2908,7 @@ body{
          <img class="prof-photo" src="조현지 교수님.jpg" alt="조현지 교수님 사진">
          <div class="prof-meta">
            <div class="prof-name">조현지 (Hyun-ji Cho)</div>
+           <div class="prof-title">전임교수</div>
            <div class="prof-info">교과: 물리학1, 물리학2, 물리학개론, 물리학실험1</div>
            <div class="prof-info">사무실: 현동홀 417호</div>
            <div class="prof-info">전화: (054-260-1321)</div>
@@ -2949,7 +2919,7 @@ body{
 
 
 
-       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:12px 0 6px; font-size:21px;">명예교수</div>
+       <div style="grid-column:1/-1;color:#cfe3ff;font-weight:800;margin:12px 0 6px">명예교수</div>
 
 
 
@@ -2959,6 +2929,7 @@ body{
            <img class="prof-photo" src="류대영 교수님.jpg" alt="류대영 교수님 사진">
            <div class="prof-meta">
              <div class="prof-name">류대영 (Daeyoung Ryu)</div>
+             <div class="prof-title">명예교수</div>
              <div class="prof-info">밴더빌트대학교 기독교사학 Ph.D.</div>
            </div>
          </div>
@@ -2972,6 +2943,7 @@ body{
            <img class="prof-photo" src="김성옥 교수님.jpg" alt="김성옥 교수님 사진">
            <div class="prof-meta">
              <div class="prof-name">김성옥 (Kim, Sung-Ock)</div>
+             <div class="prof-title">명예교수</div>
              <div class="prof-info">UCLA 수학 Ph.D.</div>
            </div>
          </div>
@@ -2985,6 +2957,7 @@ body{
            <img class="prof-photo" src="김윤규 교수님.jpg" alt="김윤규 교수님 사진">
            <div class="prof-meta">
              <div class="prof-name">김윤규 (Yunkyu Kim)</div>
+             <div class="prof-title">명예교수</div>
              <div class="prof-info">경북대학교 국어국문학 Ph.D.</div>
            </div>
          </div>
@@ -2998,6 +2971,7 @@ body{
            <img class="prof-photo" src="김종록 교수님.jpg" alt="김종록 교수님 사진">
            <div class="prof-meta">
              <div class="prof-name">김종록 (Jongrok Kim)</div>
+             <div class="prof-title">명예교수</div>
              <div class="prof-info">경북대학교 국어국문학 Ph.D.</div>
            </div>
          </div>
@@ -3011,6 +2985,7 @@ body{
            <img class="prof-photo" src="황철원 교수님.jpg" alt="황철원 교수님 사진">
            <div class="prof-meta">
              <div class="prof-name">황철원 (Cher-Won Hwang)</div>
+             <div class="prof-title">명예교수</div>
              <div class="prof-info">동경대학교 환경생물과학 Ph.D.</div>
            </div>
          </div>
@@ -3034,29 +3009,6 @@ body{
  <script>
 
 <!-- 메인페이지 -->
-        function goToMain() {
-        const menu = document.getElementById('menu-section');
-        const root = document.getElementById('gls-page-root');
-
-        // 메뉴 섹션을 페이드 아웃
-        menu.style.opacity = '0';
-        menu.style.transform = 'scale(0.97)';
-        menu.style.transition = 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)';
-
-        // 애니메이션 완료 후 메뉴 숨김
-        setTimeout(() => {
-          menu.style.position = 'relative';
-          menu.style.inset = 'auto';
-          menu.style.zIndex = '0';
-          menu.style.pointerEvents = 'none';
-        }, 350);
-
-        // 메인 페이지로 스크롤
-        root.scrollIntoView({
-            behavior: 'smooth'
-        });
-        }
-
         (function() {
             const root = document.getElementById('gls-page-root');
             if (!root) return;
@@ -3128,16 +3080,15 @@ body{
         })();
 
    /* ===== [데이터 전면 교체] 제공해주신 학사일정 정보 입력 및 법정공휴일 플래그 설정 ===== */
-   const hanstEvent = { title: '한스트', description: '2026학년도 한동대학교 새내기 새로배움터(HanST)가 진행됩니다! 대학 생활의 설레는 첫걸음을 환영합니다.', icon: '🎉', type: 'multi', image:'한스트.png'};
-   const midExam1 = { title: '1학기 중간고사', description: '1학기 중간고사 기간입니다. 차근차근 준비한 만큼 좋은 결과가 있기를 응원합니다!', icon: '📝', type: 'multi', image:'1학기 중간고사.jpeg' };
-   const springFest = { title: '선교축제 (봄축제)', description: '한동대학교 봄 선교축제 기간입니다. 다채로운 행사와 은혜의 시간을 함께 누려보세요.', icon: '✨', type: 'multi', image:'선교축제.jpeg' };
-   const finalExam1 = { title: '1학기 기말고사', description: '1학기 한 학기를 마무리하는 기말고사 기간입니다. 마지막까지 유종의 미를 거두세요!', icon: '✍️', type: 'multi', image:'기말고사.png' };
-   const courseReg1 = { title: '학년별 수강신청', description: '2학기 학년별 수강신청 기간입니다. 시간표 빌더를 미리 확인하세요!', icon: '💻', type: 'multi', image:'2학기 학년 별 수강신청.png' };
-   const midExam2 = { title: '2학기 중간고사', description: '2학기 중간고사 기간입니다. 집중력을 발휘해 파이팅해보아요!', icon: '📝', type: 'multi', image:'2학기 중간고사.jpeg' };
-   const fallFest = { title: '가을축제', description: '아름다운 캠퍼스에서 펼쳐지는 가을축제 기간입니다. 낭만 가득한 축제를 즐겨보세요.', icon: '🍁', type: 'multi', image:'가을축제.jpeg' };
-   const finalExam2 = { title: '2학기 기말고사', description: '2학기 기말고사 기간입니다. 한 해의 학업을 알차게 매듭짓는 시간입니다.', icon: '✍️', type: 'multi', image:'2학기 기말고사.png' };
-   const summerSession = { title: '하계계절학기', description: '하계계절학기 기간입니다.', icon: '🗓️', type: 'multi' };
-   const courseReg2 = { title: '학년별 수강신청', description: '2027학년도 1학기 학년별 수강신청 기간입니다.', icon: '💻', type: 'multi', image:'2학기 학년 별 수강신청.png' };
+   const hanstEvent = { title: '한스트', description: '2026학년도 한동대학교 새내기 새로배움터(HanST)가 진행됩니다! 대학 생활의 설레는 첫걸음을 환영합니다.', icon: '🎉', type: 'multi' };
+   const midExam1 = { title: '1학기 중간고사', description: '1학기 중간고사 기간입니다. 차근차근 준비한 만큼 좋은 결과가 있기를 응원합니다!', icon: '📝', type: 'multi' };
+   const springFest = { title: '선교축제 (봄축제)', description: '한동대학교 봄 선교축제 기간입니다. 다채로운 행사와 은혜의 시간을 함께 누려보세요.', icon: '✨', type: 'multi' };
+   const finalExam1 = { title: '1학기 기말고사', description: '1학기 한 학기를 마무리하는 기말고사 기간입니다. 마지막까지 유종의 미를 거두세요!', icon: '✍️', type: 'multi' };
+   const courseReg1 = { title: '학년별 수강신청', description: '2학기 학년별 수강신청 기간입니다. 시간표 빌더를 미리 확인하세요!', icon: '💻', type: 'multi' };
+   const midExam2 = { title: '2학기 중간고사', description: '2학기 중간고사 기간입니다. 집중력을 발휘해 파이팅해보아요!', icon: '📝', type: 'multi' };
+   const fallFest = { title: '가을축제', description: '아름다운 캠퍼스에서 펼쳐지는 가을축제 기간입니다. 낭만 가득한 축제를 즐겨보세요.', icon: '🍁', type: 'multi' };
+   const finalExam2 = { title: '2학기 기말고사', description: '2학기 기말고사 기간입니다. 한 해의 학업을 알차게 매듭짓는 시간입니다.', icon: '✍️', type: 'multi' };
+   const courseReg2 = { title: '학년별 수강신청', description: '2027학년도 1학기 학년별 수강신청 기간입니다.', icon: '💻', type: 'multi' };
 
    const academicEvents = {
      // 2026년 2월
@@ -3149,7 +3100,7 @@ body{
 
      // 2026년 3월
      '2026-03-01': { title: '삼일절', description: '삼일절 공휴일입니다.', icon: '🇰🇷', isHoliday: true },
-     '2026-03-25': { title: 'RC 리그', description: '서로 다른 Residential College 소속 학생들이 펼치는 뜨거운 스포츠 소통, RC 리그의 날입니다!', icon: '🏆', image:'RC체육대회.jpeg'},
+     '2026-03-25': { title: 'RC 리그', description: '서로 다른 Residential College 소속 학생들이 펼치는 뜨거운 스포츠 소통, RC 리그의 날입니다!', icon: '🏆' },
 
      // 2026년 4월
      '2026-04-20': { ...midExam1, isStart: true },
@@ -3163,60 +3114,28 @@ body{
      '2026-05-06': { ...springFest, isStart: true },
      '2026-05-07': { ...springFest, isMid: true },
      '2026-05-08': { ...springFest, isEnd: true },
-     '2026-05-11': { title: '스승의날 선물 수령', description: '📦수령 안내<br>✔️장소: GLS세미나실 (NHM 1층)<br>✔️날짜: 5월 11일 월요일<br>✔️시간: 오후 8시-9시<br>👉팀 대표 1인이 방문하여 수령<br><br>뭉치 여러분, 안녕하세요! 곧 있으면 스승의 날이죠!! 그래서 저희 GLS임원단 SYNC가 팀교수님께 감사의 마음을 전할 수 있도록 선물을 준비했습니다!<br><br>스승의 날을 맞이하여 팀 교수님께 드릴 📸 단체사진액자, 💌감사 메세지, 🌷카네이션 브로치를 준비하였습니다!', icon: '💐', image: '스승의 날 선물 수령.png' },
-     '2026-05-15': { title: '스승의날', description: '교수님과 선생님들의 사랑과 가르침에 깊은 감사를 전하는 날입니다.', icon: '💐', image:'스승의 날.jpeg' },
-     '2026-05-18': { title: '성년의날', description: '성년으로서 당당히 첫 발을 내딛는 학우분들의 앞날을 축복합니다.', icon: '🌹', image:'성년의 날.jpeg'},
+     '2026-05-15': { title: '스승의날', description: '교수님과 선생님들의 사랑과 가르침에 깊은 감사를 전하는 날입니다.', icon: '💐' },
+     '2026-05-18': { title: '성년의날', description: '성년으로서 당당히 첫 발을 내딛는 학우분들의 앞날을 축복합니다.', icon: '🌹' },
      '2026-05-25': { title: '부처님오신날', description: '석가탄신일 공휴일입니다.', icon: '🙏', isHoliday: true },
 
-     // 2026년 6,7월
-     '2026-06-01': { title: 'GLS 기파 간식 배부', description: '📅 날짜: 6월 1일~6월 3일 (월~수)<br> 🏫장소: 어푸푸 동상 앞 <br>🕛 시간 -점심시간: 12:50-2:20 <br>-저녁시간: 17:30-19:00 <br>☎️문의: 010-3006-1839 <br>⚠️ 본 행사는 학생 회비 납부자에 한해 제공되며, 선물은 타임별 지정된 수량이 소진 될 경우 조기 종료 될 수 있습니다 ⚠️', icon: '📚', image: 'GLS 기말 화이팅.png'},
-     '2026-06-02': { title: '새새100일', description: '새내기가 된 지 100일째 되는 특별한 날을 축하하며 기념 행사가 진행됩니다.', icon: '💯' , image:'새새 100일.jpeg'},
+     // 2026년 6월
+     '2026-06-02': { title: '새새100일', description: '새내기가 된 지 100일째 되는 특별한 날을 축하하며 기념 행사가 진행됩니다.', icon: '💯' },
      '2026-06-06': { title: '현충일', description: '현충일 추모 공휴일입니다.', icon: '🇰🇷', isHoliday: true },
-     '2026-06-08': { title: '학생총회', description: '학생사회 최고의결기구인 학생총회가 다음과 같이 개최됩니다. <br> 총회가 개회하기 위해서는 정회원 1/5인 800명 이상의 학우님들이 반드시 모여야 합니다. <br>학우 여러분의 많은 관심과 참여를 부탁드립니다.<br>📍 일시: 2026년 6월 8일(월) 18:00 <br>📍 장소: 효암채플 본관<br> 📍 대상: 한동대학교 총학생회 정회원 전체 <br> ※ 정회원 1/5 (800명) 이상 출석 시 개회 ', image:'학생총회.png'},
-     '2026-06-10': { title: 'GLS 종강총회', description: '📌장소 및 일시 <br> 오석 401호 <br> 6월 10일 수요일 / 6:00~7:30<br> 📢 안건<br> 임원단 소개 <br>임원단 행사 보고 <br>결산안 심의<br> 🌭간식 <br>떡볶이 + 명랑핫도그 1인 1세트 (선착순으로 진행됩니다!) ', image:'GLS 종강총회.png'},
      '2026-06-15': { ...finalExam1, isStart: true },
      '2026-06-16': { ...finalExam1, isMid: true },
      '2026-06-17': { ...finalExam1, isMid: true },
      '2026-06-18': { ...finalExam1, isMid: true },
      '2026-06-19': { ...finalExam1, isEnd: true },
-     '2026-06-22': { title: '종강', description: '1학기가 공식적으로 종강하였습니다. 한 학기 동안 대단히 고생 많으셨습니다!', icon: '🎓' , image:'종강.jpeg'},
-     '2026-06-22': { ...summerSession, isStart: true },
-'2026-06-23': { ...summerSession, isMid: true },
-'2026-06-24': { ...summerSession, isMid: true },
-'2026-06-25': { ...summerSession, isMid: true },
-'2026-06-26': { ...summerSession, isMid: true },
-'2026-06-27': { ...summerSession, isMid: true },
-'2026-06-28': { ...summerSession, isMid: true },
-'2026-06-29': { ...summerSession, isMid: true },
-'2026-06-30': { ...summerSession, isMid: true },
-'2026-07-01': { ...summerSession, isMid: true },
-'2026-07-02': { ...summerSession, isMid: true },
-'2026-07-03': { ...summerSession, isMid: true },
-'2026-07-04': { ...summerSession, isMid: true },
-'2026-07-05': { ...summerSession, isMid: true },
-'2026-07-06': { ...summerSession, isMid: true },
-'2026-07-07': { ...summerSession, isMid: true },
-'2026-07-08': { ...summerSession, isMid: true },
-'2026-07-09': { ...summerSession, isMid: true },
-'2026-07-10': { ...summerSession, isMid: true },
-'2026-07-11': { ...summerSession, isMid: true },
-'2026-07-12': { ...summerSession, isMid: true },
-'2026-07-13': { ...summerSession, isEnd: true },
-'2026-07-17': { title: '하계계절학기 성적처리 마감', description: '하계계절학기 성적처리가 마감됩니다.', icon: '📝'},
+     '2026-06-22': { title: '종강', description: '1학기가 공식적으로 종강하였습니다. 한 학기 동안 대단히 고생 많으셨습니다!', icon: '🎓' },
 
-     // 2026년 8월 
+     // 2026년 8월
      '2026-08-03': { ...courseReg1, isStart: true },
      '2026-08-04': { ...courseReg1, isMid: true },
      '2026-08-05': { ...courseReg1, isMid: true },
      '2026-08-06': { ...courseReg1, isEnd: true },
      '2026-08-15': { title: '광복절', description: '광복절 국경일 공휴일입니다.', icon: '🇰🇷', isHoliday: true },
-     '2026-08-29': { title: '생활관 입주', description: '2학기 생활관(기숙사) 입주를 시작합니다.', icon: '📦', image:'생활관 입주.jpeg' },
-     '2026-08-31': { title: '개강', description: '2026학년도 2학기가 힘차게 개강합니다. 활기찬 학기를 이어가봐요!', icon: '🔔' , image:'개강.jpeg'},
-     
-     // 2026년 9월
-     '2026-09-11': { title: 'HISNet 수강철회', description: 'HISNet 수강철회 (모든 수강신청 마감)', icon: '🗓️' },
-     '2026-09-21': { title: '수업적응도 설문조사', description: '수업적응도 설문조사가 진행됩니다.', icon: '🗓️' },
-
+     '2026-08-29': { title: '생활관 입주', description: '2학기 생활관(기숙사) 입주를 시작합니다. 꼼꼼히 이삿짐을 확인하세요.', icon: '📦' },
+     '2026-08-31': { title: '개강', description: '2026학년도 2학기가 힘차게 개강합니다. 활기찬 학기를 이어가봐요!', icon: '🔔' },
 
      // 2026년 10월
      '2026-10-03': { title: '개천절', description: '개천절 공휴일입니다.', icon: '🇰🇷', isHoliday: true },
@@ -3226,31 +3145,27 @@ body{
      '2026-10-21': { ...midExam2, isMid: true },
      '2026-10-22': { ...midExam2, isMid: true },
      '2026-10-23': { ...midExam2, isEnd: true },
-     '2026-10-26': { title: 'RC변경신청 접수 시작', description: 'RC변경신청 접수가 시작됩니다. (매년 2학기 9~11주차)', icon: '🏠' },
 
      // 2026년 11월
      '2026-11-04': { ...fallFest, isStart: true },
      '2026-11-05': { ...fallFest, isMid: true },
      '2026-11-06': { ...fallFest, isEnd: true },
-     '2026-11-15': { title: 'RC변경신청 마감', description: 'RC변경신청 접수가 마감됩니다.', icon: '🏠' },
 
      // 2026년 12월
-     '2026-12-01': { title: '27-1학기 생활관 입주 신청 시작', description: '27-1학기 생활관 입주 신청이 시작됩니다.', icon: '🏠' },
      '2026-12-14': { ...finalExam2, isStart: true },
      '2026-12-15': { ...finalExam2, isMid: true },
      '2026-12-16': { ...finalExam2, isMid: true },
      '2026-12-17': { ...finalExam2, isMid: true },
      '2026-12-18': { ...finalExam2, isEnd: true },
-     '2026-12-21': { title: '종강', description: '2학기 종강일입니다. 한 해 동안 수고한 자신에게 격려를 보내주세요.', icon: '🎄', image:'2학기 종강.jpeg' },
+     '2026-12-21': { title: '종강', description: '2학기 종강일입니다. 한 해 동안 수고한 자신에게 격려를 보내주세요.', icon: '🎄' },
      '2026-12-25': { title: '성탄절', description: '기쁘고 따뜻한 크리스마스 성탄절 공휴일입니다.', icon: '🎅', isHoliday: true },
 
-     // 2027년 1,2,3월
+     // 2027년 1, 2월
      '2027-01-01': { title: '신정', description: '새해 첫날 공휴일입니다.', icon: '☀️', isHoliday: true },
      '2027-02-01': { ...courseReg2, isStart: true },
      '2027-02-02': { ...courseReg2, isMid: true },
      '2027-02-03': { ...courseReg2, isMid: true },
      '2027-02-04': { ...courseReg2, isEnd: true },
-     '2027-02-18': { title: '27-1학기 등록금 수납 시작', description: '27-1학기 등록금 수납이 시작됩니다.', icon: '💳' },
      '2027-03-01': { title: '삼일절', description: '삼일절 공휴일입니다.', icon: '🇰🇷', isHoliday: true }
    };
 
@@ -3411,12 +3326,10 @@ body{
 
      if (event) {
        eventContent.innerHTML = `
-         <div class="event-image-container">
-  ${event.image 
-    ? `<img src="${event.image}" alt="${event.title}" style="width:100%;height:auto;object-fit:cover;">` 
-    : `<div style="font-size:80px;">${event.icon}</div>`
-  }
-</div>
+         <div class="event-content-wrapper">
+           <div class="event-image-container">
+             <div style="font-size: 80px;">${event.icon}</div>
+           </div>
            <h3 class="event-title" style="${event.isHoliday ? 'color:#e53e3e;' : ''}">${event.title}</h3>
            <p class="event-description">${event.description}</p>
          </div>
@@ -3578,27 +3491,7 @@ body{
        }
      });
    });
-function enterMenu() {
-  const root = document.getElementById('gls-page-root');
-  const menu = document.getElementById('menu-section');
 
-  // 메뉴를 fixed로 전체화면 위에 띄움
-  menu.style.position = 'fixed';
-  menu.style.inset = '0';
-  menu.style.zIndex = '500';
-  menu.style.overflowY = 'auto';
-  menu.style.pointerEvents = 'auto';
-  menu.style.opacity = '0';
-  menu.style.transform = 'scale(0.97)';
-  menu.style.transition = 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)';
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      menu.style.opacity = '1';
-      menu.style.transform = 'scale(1)';
-    });
-  });
-}
  </script>
 </body>
 </html>
